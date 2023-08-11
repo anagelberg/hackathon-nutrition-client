@@ -1,0 +1,35 @@
+@use '../../styles/_mixins.scss' as *;
+@use '../../styles/_variables.scss' as *;
+
+.nav-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @include flex-gap;
+    background-color: $primary;
+    height: 4rem;
+    @include bottom-margin;
+
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5em 1em;
+}
+
+.active-link {
+    font-weight: bold;
+
+    /* Active link color */
+
+    .nav-item {
+        border-bottom: 3px $black solid;
+    }
+}
+
+.nav-item {
+    height: 4rem;
+    @include flex-center;
+
+}

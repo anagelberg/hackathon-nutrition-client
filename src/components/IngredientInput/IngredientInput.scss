@@ -1,0 +1,9 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.input-row {
+    width: 100%;
+    @include bottom-margin;
+    @include flex-center($justify-content: space-between);
+    @include flex-gap;
+}

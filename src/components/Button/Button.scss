@@ -1,0 +1,39 @@
+@use '../../styles/_mixins.scss' as *;
+@use '../../styles/_variables.scss' as *;
+
+
+.cta {
+    height: 2.5rem;
+    width: 100%;
+    // min-width: 150px;
+    border-radius: $border-radius;
+    background-color: $white;
+    color: $accent;
+    transition: $transition;
+    border: none;
+
+    @include tablet {
+        max-width: 150px;
+    }
+
+    &:hover:enabled {
+        // background-color: $neutral;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    &:hover:disabled {
+        cursor: not-allowed;
+    }
+
+    &--reverse {
+        background-color: $secondary;
+        color: $black;
+
+        &:hover:enabled {
+            background-color: $primary;
+            text-decoration: none;
+        }
+    }
+
+}

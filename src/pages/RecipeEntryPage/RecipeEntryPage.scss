@@ -1,0 +1,43 @@
+@use '../../styles/_mixins.scss' as *;
+@use '../../styles/_variables.scss' as *;
+
+
+section {
+    @include flex-center;
+}
+
+h2 {
+    @include bottom-margin;
+    align-self: flex-start;
+}
+
+form {
+    @include flex-center;
+    flex-direction: column;
+
+    @include desktop {
+        max-width: 45vw;
+    }
+
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.meal-name-label {
+    @include bottom-margin;
+    @include flex-center;
+    width: 100%;
+    @include flex-gap;
+    border-bottom: $divider;
+    padding-bottom: 1rem;
+    justify-content: flex-start;
+}
+
+.meal-name-input {
+    width: 100%;
+    flex-grow: 5;
+}
