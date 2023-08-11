@@ -4,6 +4,7 @@
 
 section {
     @include flex-center;
+    gap: 4rem;
 }
 
 h2 {
@@ -40,4 +41,11 @@ form {
 .meal-name-input {
     width: 100%;
     flex-grow: 5;
+}
+
+.meal-summary {
+    border: 1px solid $accent;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 4px;
 }

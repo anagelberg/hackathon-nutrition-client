@@ -3,12 +3,39 @@ import './RecipeEntryPage.scss'
 import axios from "axios";
 import IngredientInput from "../../components/IngredientInput/IngredientInput";
 import Button from "../../components/Button/Button";
+import PieChartComponent from "../PieChartComponent/PieChartComponent";
 
 function RecipeEntryPage() {
 
     const [ingredientList, setIngredientList] = useState(
         Array.from({ length: 5 }, () => ({ numGrams: "", ingredient: "" }))
     );
+
+
+    const [submitted, setSubmitted] = useState(false);
+    const [grams, setgrams] = useState(
+        {
+            protein: 20,
+            fat: 5,
+            carbs: 10
+        })
+
+    const [cals, setCals] = useState(
+        {
+            protein: 0,
+            fat: 0,
+            carbs: 0
+        })
+
+    useEffect(() => {
+        setCals({
+            protein: grams.protein * 4,
+            fat: grams.fat * 4,
+            carbs: grams.carbs * 9
+        })
+    }, [grams])
+
+
 
     const [mealName, setMealName] = useState('');
 
@@ -47,8 +74,9 @@ function RecipeEntryPage() {
             ingredients: ingredientListFiltered
         }
 
+        // PReview request
         console.log('reqObj', reqObj);
-
+        setSubmitted(true);
     };
 
     const handleMealChange = (event) => {
@@ -82,9 +110,23 @@ function RecipeEntryPage() {
                     <Button text="Submit" modifiers='--reverse' type="submit" />
 
                 </div>
-
-
             </form>
+
+
+            {submitted &&
+                <div className='meal-summary'>
+                    <h2>Meal Summary</h2>
+                    <h3>{mealName}</h3>
+                    <PieChartComponent cals={cals} grams={grams} />
+
+                    <h2>Total Calories: {cals.protein + cals.fat + cals.carbs}</h2>
+                </div>
+
+
+            }
+
+
+
         </section>
     );
 
