@@ -28,13 +28,13 @@ const PieChartComponent = ({ cals, grams }) => {
     const COLORS = ['#A8D5BA', '#6DBE45', '#FFAB5E'];
 
     return (
-        <PieChart width={300} height={300}>
+        <PieChart width={400} height={400}>
             <Pie
                 dataKey="value"
                 isAnimationActive={false}
                 data={data}
-                cx={150}
-                cy={120}
+                cx={200}
+                cy={200}
                 outerRadius={100}
                 fill="#8884d8"
                 label={(entry) => `${entry.name}`}

@@ -5,19 +5,19 @@ import IngredientInput from "../../components/IngredientInput/IngredientInput";
 import Button from "../../components/Button/Button";
 import PieChartComponent from "../PieChartComponent/PieChartComponent";
 
-function RecipeEntryPage() {
+function RecipeEntryPage({ eatFood }) {
 
     const [ingredientList, setIngredientList] = useState(
-        Array.from({ length: 5 }, () => ({ numGrams: "", ingredient: "" }))
+        Array.from({ length: 3 }, () => ({ numGrams: "", ingredient: "" }))
     );
 
 
     const [submitted, setSubmitted] = useState(false);
-    const [grams, setgrams] = useState(
+    const [grams, setGrams] = useState(
         {
-            protein: 20,
-            fat: 5,
-            carbs: 10
+            protein: 0,
+            fat: 0,
+            carbs: 0
         })
 
     const [cals, setCals] = useState(
@@ -30,8 +30,8 @@ function RecipeEntryPage() {
     useEffect(() => {
         setCals({
             protein: grams.protein * 4,
-            fat: grams.fat * 4,
-            carbs: grams.carbs * 9
+            fat: grams.fat * 9,
+            carbs: grams.carbs * 4 / 3
         })
     }, [grams])
 
@@ -70,12 +70,20 @@ function RecipeEntryPage() {
 
         // Create req obj to send to backend
         const reqObj = {
-            mealName: mealName,
-            ingredients: ingredientListFiltered
+            Name: mealName,
+            Ingredients: ingredientListFiltered
         }
+        console.log(reqObj);
+
+        axios.post('http://localhost:8080/', reqObj).then(response => {
+            setGrams(response.data);
+            eatFood(response.data);
+        })
+
+
 
         // PReview request
-        console.log('reqObj', reqObj);
+
         setSubmitted(true);
     };
 
