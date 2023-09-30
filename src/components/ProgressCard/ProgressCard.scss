@@ -1,0 +1,19 @@
+@use '../../styles/_mixins.scss' as *;
+@use '../../styles/_variables.scss' as *;
+
+.progress-card {
+    text-align: center;
+    width: 20%;
+    border: 1px $accent solid;
+    border-radius: $border-radius;
+    padding: 2rem 1rem;
+    @include flex-center;
+    flex-direction: column;
+    gap: 1rem;
+    height: 50vh;
+}
+
+
+.goal {
+    margin: 1rem 0;
+}

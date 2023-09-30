@@ -1,0 +1,12 @@
+@use '../../styles/_mixins.scss' as *;
+@use '../../styles/_variables.scss' as *;
+
+.daily {
+    @include side-padding;
+}
+
+.card-container {
+    @include flex-center;
+    @include top-margin;
+    gap: 2rem;
+}
