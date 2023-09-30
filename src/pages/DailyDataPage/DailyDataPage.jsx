@@ -2,7 +2,7 @@
 
 
 import 'react-circular-progressbar/dist/styles.css';
-import ProgressCircle from "../../components/ProgressCircle/ProgressCircle";
+// import ProgressCircle from "../../components/ProgressCircle/ProgressCircle";
 import ProgressCard from '../../components/ProgressCard/ProgressCard';
 import './DailyDataPage.scss'
 import { useState } from 'react';
@@ -14,7 +14,7 @@ function DailyDataPage({ goals, consumed }) {
 
     //get consumed 
 
-
+    // eslint-disable-next-line
     const [percentages, setPercentages] = useState({
         protein: parseFloat((100 * (consumed.protein / goals.protein)).toFixed(1)),
         fat: parseFloat((100 * (consumed.fat / goals.fat)).toFixed(1)),

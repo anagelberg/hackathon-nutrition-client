@@ -1,7 +1,6 @@
 // style
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 
 // Pages
 
@@ -18,6 +17,7 @@ function App() {
 
 
   //goals in grams
+  // eslint-disable-next-line
   const [goals, setGoals] = useState(
     {
       protein: 125,

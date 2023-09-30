@@ -75,7 +75,7 @@ function RecipeEntryPage({ eatFood }) {
         }
         console.log(reqObj);
 
-        axios.post('http://localhost:8080/', reqObj).then(response => {
+        axios.post(process.env.REACT_APP_SERVER_URL, reqObj).then(response => {
             setGrams(response.data);
             eatFood(response.data);
         })
